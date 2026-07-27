@@ -41,9 +41,8 @@
     --card-bg: #FFFFFF;
     --card-border: transparent;
     --card-bg-hover: #FFFFFF;
-    --toggle-bg: #DBE8F9;
-    --toggle-border: #4F74B5;
-    --toggle-inactive: #4F74B5;
+    --toggle-active-bg: #5387f9;
+    --toggle-active-fg: #FFFFFF;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -56,9 +55,8 @@
       --card-bg-hover: #456291;
       --accent: #FFFFFF;
       --heading-accent: #abc6ff;
-      --toggle-bg: #324d79;
-      --toggle-border: #4F74B5;
-      --toggle-inactive: #FAFFEF;
+      --toggle-active-bg: #abc6ff;
+      --toggle-active-fg: #324d79;
     }
   }
 
@@ -71,9 +69,8 @@
     --card-bg-hover: #456291;
     --accent: #FFFFFF;
     --heading-accent: #abc6ff;
-    --toggle-bg: #324d79;
-    --toggle-border: #4F74B5;
-    --toggle-inactive: #FAFFEF;
+    --toggle-active-bg: #abc6ff;
+    --toggle-active-fg: #324d79;
   }
 
   body {
@@ -104,6 +101,12 @@
     display: block;
   }
 
+  @media (max-width: 640px) {
+    .logo {
+      max-width: 180px;
+    }
+  }
+
   .logo-dark { display: none; }
 
   :root[data-theme="dark"] .logo-light { display: none; }
@@ -116,7 +119,7 @@
 
   header p {
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--fg-muted);
     margin-top: 24px;
     letter-spacing: 0.01em;
@@ -137,7 +140,7 @@
 
   .group-heading {
     font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.96px;
     text-transform: uppercase;
@@ -183,13 +186,13 @@
   .card-text {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 0;
     min-width: 0;
   }
 
   .card-title {
     font-family: 'Garamond Premier Pro', 'EB Garamond', Garamond, serif;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.3;
     color: var(--fg);
   }
@@ -197,7 +200,7 @@
   .card-subcopy {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.3;
     color: var(--fg-muted);
   }
@@ -214,15 +217,15 @@
     transform: translateX(3px);
   }
 
-  /* Theme toggle, matching amandammiller.github.io/OldHousesFilm */
   #theme-toggle {
     position: fixed;
     bottom: 1rem;
-    right: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
-    background: var(--toggle-bg);
-    border: 1.5px solid var(--toggle-border);
+    background: var(--bg);
+    border: 1.5px solid var(--heading-accent);
     transition: background 0.3s, border-color 0.3s;
     border-radius: 999px;
     padding: 3px;
@@ -237,7 +240,7 @@
     border-radius: 999px;
     border: none;
     background: none;
-    color: var(--toggle-inactive);
+    color: var(--heading-accent);
     font-family: inherit;
     font-size: inherit;
     cursor: pointer;
@@ -251,20 +254,12 @@
   }
 
   #theme-toggle button.active {
-    background: #4F74B5;
-    color: #FAFFEF;
+    background: var(--toggle-active-bg);
+    color: var(--toggle-active-fg);
   }
 
   @media (prefers-reduced-motion: reduce) {
     body, .card, .card-arrow, #theme-toggle, #theme-toggle button { transition: none; }
-  }
-
-  @media (max-width: 379px) {
-    #theme-toggle {
-      left: 50%;
-      right: auto;
-      transform: translateX(-50%);
-    }
   }
 </style>
 </head>
