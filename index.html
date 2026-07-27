@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blue Hydrangea Stitcher | Amanda Miller</title>
+<meta name="description" content="Needlepoint designs, stitch guides, photography, and knitting from Amanda Miller.">
+<link rel="canonical" href="https://bluehydrangeastitcher.com/">
+<meta name="theme-color" content="#DBE8F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#324d79" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Blue Hydrangea Stitcher">
+<meta property="og:url" content="https://bluehydrangeastitcher.com/">
+<meta property="og:title" content="Blue Hydrangea Stitcher">
+<meta property="og:description" content="Needlepoint designs, stitch guides, photography, and knitting from Amanda Miller.">
+<meta property="og:image" content="https://bluehydrangeastitcher.com/assets/share-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blue Hydrangea Stitcher">
+<meta name="twitter:description" content="Needlepoint designs, stitch guides, photography, and knitting from Amanda Miller.">
+<meta name="twitter:image" content="https://bluehydrangeastitcher.com/assets/share-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #DBE8F9;
+    --fg: #35598e;
+    --fg-muted: #5b7db7;
+    --accent: #35598e;
+    --heading-accent: #5387f9;
+    --card-bg: #FFFFFF;
+    --card-border: transparent;
+    --card-bg-hover: #FFFFFF;
+    --toggle-bg: #DBE8F9;
+    --toggle-border: #4F74B5;
+    --toggle-inactive: #4F74B5;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #324d79;
+      --fg: #FFFFFF;
+      --fg-muted: #dbe8f9;
+      --card-bg: #456291;
+      --card-border: transparent;
+      --card-bg-hover: #456291;
+      --accent: #FFFFFF;
+      --heading-accent: #abc6ff;
+      --toggle-bg: #324d79;
+      --toggle-border: #4F74B5;
+      --toggle-inactive: #FAFFEF;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #324d79;
+    --fg: #FFFFFF;
+    --fg-muted: #dbe8f9;
+    --card-bg: #456291;
+    --card-border: transparent;
+    --card-bg-hover: #456291;
+    --accent: #FFFFFF;
+    --heading-accent: #abc6ff;
+    --toggle-bg: #324d79;
+    --toggle-border: #4F74B5;
+    --toggle-inactive: #FAFFEF;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  main {
+    max-width: 560px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px 20px 24px;
+  }
+
+  header {
+    text-align: center;
+  }
+
+  .logo {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto 1rem;
+    display: block;
+  }
+
+  .logo-dark { display: none; }
+
+  :root[data-theme="dark"] .logo-light { display: none; }
+  :root[data-theme="dark"] .logo-dark { display: block; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .logo-light { display: none; }
+    :root:not([data-theme="light"]) .logo-dark { display: block; }
+  }
+
+  header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--fg-muted);
+    margin-top: 24px;
+    letter-spacing: 0.01em;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .link-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .group-heading {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.96px;
+    text-transform: uppercase;
+    color: var(--heading-accent);
+    border-bottom: 1.5px solid var(--heading-accent);
+    padding-bottom: 4px;
+    width: fit-content;
+  }
+
+  .group-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--fg);
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  .card:hover,
+  .card:focus-visible {
+    background: var(--card-bg-hover);
+    box-shadow: 0 6px 18px rgba(53, 89, 142, 0.16);
+    transform: translateY(-1px);
+  }
+
+  .card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .card-title {
+    font-family: 'Garamond Premier Pro', 'EB Garamond', Garamond, serif;
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--fg);
+  }
+
+  .card-subcopy {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.3;
+    color: var(--fg-muted);
+  }
+
+  .card-arrow {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--accent);
+    transition: transform 0.15s ease;
+  }
+
+  .card:hover .card-arrow {
+    transform: translateX(3px);
+  }
+
+  /* Theme toggle, matching amandammiller.github.io/OldHousesFilm */
+  #theme-toggle {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    background: var(--toggle-bg);
+    border: 1.5px solid var(--toggle-border);
+    transition: background 0.3s, border-color 0.3s;
+    border-radius: 999px;
+    padding: 3px;
+    gap: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+  }
+
+  #theme-toggle button {
+    padding: 0 0.85rem;
+    height: 28px;
+    border-radius: 999px;
+    border: none;
+    background: none;
+    color: var(--toggle-inactive);
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    user-select: none;
+  }
+
+  #theme-toggle button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  #theme-toggle button.active {
+    background: #4F74B5;
+    color: #FAFFEF;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body, .card, .card-arrow, #theme-toggle, #theme-toggle button { transition: none; }
+  }
+
+  @media (max-width: 379px) {
+    #theme-toggle {
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+    }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <header>
+    <img class="logo logo-light" src="assets/BlueHydrangeaStitcher.svg" alt="Blue Hydrangea Stitcher">
+    <img class="logo logo-dark" src="assets/BlueHydrangeaStitcher_Dark.svg" alt="Blue Hydrangea Stitcher">
+    <p>by Amanda Miller</p>
+  </header>
+
+  <nav class="links">
+    <div class="link-group">
+      <h2 class="group-heading">Needlepoint</h2>
+
+      <div class="group-cards">
+        <a class="card" href="https://pennylinn.com/collections/vendors?q=Blue+Hydrangea+Stitcher" target="_blank" rel="noopener">
+          <span class="card-text">
+            <span class="card-title">Purchase my designs</span>
+            <span class="card-subcopy">Available at Penny Linn</span>
+          </span>
+          <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <a class="card" href="https://bluehydrangeastitcher.substack.com/" target="_blank" rel="noopener">
+          <span class="card-text">
+            <span class="card-title">Cape Christmas village stitch guides</span>
+            <span class="card-subcopy">Available on Substack</span>
+          </span>
+          <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="link-group">
+      <h2 class="group-heading">Everything else</h2>
+
+      <div class="group-cards">
+        <a class="card" href="https://amandammiller.github.io/OldHousesFilm/" target="_blank" rel="noopener">
+          <span class="card-text">
+            <span class="card-title">Old houses on film</span>
+            <span class="card-subcopy">Photography project</span>
+          </span>
+          <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <a class="card" href="https://www.ravelry.com/projects/amandamzmiller" target="_blank" rel="noopener">
+          <span class="card-text">
+            <span class="card-title">My Ravelry</span>
+            <span class="card-subcopy">Follow along with my knitting</span>
+          </span>
+          <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+</main>
+
+<div id="theme-toggle" role="group" aria-label="Color theme">
+  <button id="opt-light" aria-pressed="false">Light</button>
+  <button id="opt-dark" aria-pressed="true" class="active">Dark</button>
+</div>
+
+<script>
+  const root = document.documentElement;
+  const optLight = document.getElementById('opt-light');
+  const optDark  = document.getElementById('opt-dark');
+
+  function isDark() {
+    if (root.dataset.theme) return root.dataset.theme === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function applyTheme(dark) {
+    root.dataset.theme = dark ? 'dark' : 'light';
+    optLight.classList.toggle('active', !dark);
+    optDark.classList.toggle('active', dark);
+    optLight.setAttribute('aria-pressed', String(!dark));
+    optDark.setAttribute('aria-pressed', String(dark));
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }
+
+  const saved = localStorage.getItem('theme');
+  applyTheme(saved ? saved === 'dark' : isDark());
+
+  optLight.addEventListener('click', () => applyTheme(false));
+  optDark.addEventListener('click',  () => applyTheme(true));
+</script>
+
+</body>
+</html>
