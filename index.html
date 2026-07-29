@@ -110,16 +110,10 @@
 
   .logo {
     width: 100%;
-    max-width: 200px;
+    max-width: 150px;
     height: auto;
     margin: 0 auto 1rem;
     display: block;
-  }
-
-  @media (max-width: 640px) {
-    .logo {
-      max-width: 180px;
-    }
   }
 
   .logo-dark { display: none; }
@@ -253,8 +247,8 @@
 
   .row-arrow {
     flex-shrink: 0;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     color: var(--row-arrow-color);
     transition: transform 0.15s ease, color 0.15s ease;
   }
@@ -286,17 +280,25 @@
   }
 
   #theme-toggle button {
-    padding: 0 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
     height: 28px;
+    padding: 0;
     border-radius: 999px;
     border: none;
     background: none;
     color: var(--heading-accent);
-    font-family: inherit;
-    font-size: inherit;
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
     user-select: none;
+  }
+
+  #theme-toggle button svg {
+    display: block;
+    width: 15px;
+    height: 15px;
   }
 
   #theme-toggle button:focus-visible {
@@ -409,8 +411,12 @@
 </main>
 
 <div id="theme-toggle" role="group" aria-label="Color theme">
-  <button id="opt-light" aria-pressed="false">Light</button>
-  <button id="opt-dark" aria-pressed="true" class="active">Dark</button>
+  <button id="opt-light" aria-pressed="false" aria-label="Light mode" title="Light mode">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+  </button>
+  <button id="opt-dark" aria-pressed="true" class="active" aria-label="Dark mode" title="Dark mode">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
 </div>
 
 <script>
